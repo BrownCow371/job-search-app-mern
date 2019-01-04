@@ -13,7 +13,7 @@ const JobSchema = new mongoose.Schema(
         },
         notes: [
             {
-                body: String,
+                text: String,
                 entryDate: {
                     type: Date,
                     default: Date.now
@@ -37,7 +37,7 @@ JobSchema.methods.addCompany = function (company_id){
 }
 
 JobSchema.methods.getCompanyJobs = function(id){
-    Job.find({'company': id}).then((job)=> {return job})
+    Job.find({'company': id}).then((jobs)=> {return jobs})
 }
 
 module.exports = mongoose.model('Job', JobSchema)
