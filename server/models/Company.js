@@ -17,4 +17,7 @@ const CompanySchema = new mongoose.Schema(
 
 // Add functions here for manipulating Company Objects
 
+CompanySchema.methods.addPosting = function(posting){
+    this.postings.push(posting)
+}
 module.exports = mongoose.model('Company', CompanySchema)
