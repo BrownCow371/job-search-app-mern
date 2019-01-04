@@ -1,6 +1,6 @@
 const Job = require('./../models/Job')
 const Company = require('./../models/Company')
-const fs = require('fs')
+// const fs = require('fs')
 
 module.exports = {
     addJob: (request, result, next) => {
@@ -14,7 +14,7 @@ module.exports = {
                 } else if (!job){
                     result.send(400)
                 } else {
-                    return job.addCompnay(request.body.company_id).then((_job) => {
+                    return job.addCompany(request.body.company_id).then((_job) => {
                         return result.send(_job)
                     })
                 }
@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     noteJob: (request, result, next) => {
-        Job.findById(request.body.job_id).then((job)=>{
+        Job.findById(request.params.id).then((job)=>{
             return job.addNote({
                 text: request.body.note,
                 entryDate: request.body.date
@@ -55,7 +55,26 @@ module.exports = {
                 result.send(job)
             }next()
         })
-    }
+    },
+    editJob: (request, result, next) => {
+        let {title, description, postingLink, dateApplied, applicationMethod} = request.body
+        
+        Job.findOneAndUpdate(
+            {id: request.params.id}, 
+            {title, description, postingLink, dateApplied, applicationMethod}
+        ).exec((err, job) =>{
+            if(err){
+                result.send(err)
+            } else if (!job){
+                result.send(404)
+            }else{
+                result.send(job)
+            }next()
+        })
 
+    }
+        
 }
+
+
     
