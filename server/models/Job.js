@@ -26,7 +26,7 @@ const JobSchema = new mongoose.Schema(
 
 // Add functions here for manipulating Job Object properties
 
-JobScheme.methods.addNote = function(note){
+JobSchema.methods.addNote = function(note){
     this.notes.push(note);
     return this.save();
 }
