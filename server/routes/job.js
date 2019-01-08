@@ -3,6 +3,10 @@ const multipart = require('connect-multiparty')
 const multipartWare = multipart()
 
 module.exports = (router) => {
+    // test route
+    router
+        .route('/test')
+        .get(jobController.test)
     // get all jobs
     router
         .route('/jobs')
