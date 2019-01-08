@@ -2,7 +2,11 @@ const Job = require('./../models/Job')
 const Company = require('./../models/Company')
 // const fs = require('fs')
 
+
 module.exports = {
+    test: (req, res) => {
+        res.send('Greetings from the test Controller!')
+    },
     addJob: (request, result, next) => {
         let {title, description, postingLink, dateApplied, applicationMethod} = request.body
         saveJob({title, description, postingLink, dateApplied, applicationMethod})
