@@ -5,7 +5,10 @@ const JobSchema = new mongoose.Schema(
         title: String,
         description: String,
         postingLink: String,
-        dateApplied: Date,
+        dateApplied: {
+            type: Date,
+            default: Date.now
+         },
         applicationMethod: String,
         company: {
             type: mongoose.Schema.Types.ObjectId,
