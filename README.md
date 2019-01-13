@@ -1,9 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
+Don't forget...your backend server is at http://192.168.1.8:3001/api/test (don't forget the "api" part!)
+
 run `npm install` (will load node packages necessary for running this application)
 Need to make sure DB is running on mlab
-whitelist IP address (if run `nmp start` you will get either localhost and an IPA address )?
+
+MongoDB instance must be running, before you begin the cURL test. To start a MongoDB server, run the command: mongod do we need this to run DB in general?
+
 launch with `npm start`
 
 
