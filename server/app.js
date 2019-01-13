@@ -27,8 +27,11 @@ mongoose.connect(
     url,
     { useNewUrlParser: true } 
 );
+
 mongoose.Promise = global.Promise;
+
 const db = mongoose.connection;
+
 db.once("open", () => console.log("connected to the database"));
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
