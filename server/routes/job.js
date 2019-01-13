@@ -10,13 +10,15 @@ module.exports = (router) => {
     // get all jobs
     router
         .route('/jobs')
-        .get(jobController.getAll)
+        .get(jobController.index)
 
     // add a job
+    // router
+    //     .route('/job')
+    //     .post(multipartWare, jobController.create)
     router
         .route('/job')
-        .post(multipartWare, jobController.addJob)
-
+        .get(jobController.create)
     // add a note to a job
     router
         .route('/job/note')
@@ -25,10 +27,10 @@ module.exports = (router) => {
     // show a particular job
     router
         .route('/job/:id')
-        .get(jobController.getJob)
+        .get(jobController.show)
 
     // edit-update a particular job
     router
         .route('/job/:id')
-        .post(jobController.editJob)
+        .post(jobController.update)
 }
