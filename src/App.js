@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 //Components
-import NavBar from './NavBar.js';
-import Test from './Test.js';
+import NavBar from './components/static/NavBar.js';
+import Test from './components/static/Test.js';
 
 // import logo from './logo.svg';
 // import './App.css';
