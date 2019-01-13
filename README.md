@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+run `npm install` (will load node packages necessary for running this application)
+Need to make sure DB is running on mlab
+whitelist IP address (if run `nmp start` you will get either localhost and an IPA address )?
+launch with `npm start`
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
