@@ -1,36 +1,33 @@
 const jobController = require('./../controllers/job.ctrl')
-const multipart = require('connect-multiparty')
-const multipartWare = multipart()
 
 module.exports = (router) => {
     // test route
     router
         .route('/test')
         .get(jobController.test)
-    // get all jobs
+    // get all jobs -index
     router
         .route('/jobs')
         .get(jobController.index)
-
-    // add a job
-    // router
-    //     .route('/job')
-    //     .post(multipartWare, jobController.create)
+    // create job
     router
         .route('/job')
-        .get(jobController.create)
-    // add a note to a job
-    router
-        .route('/job/note')
-        .post(jobController.noteJob )
-
-    // show a particular job
+        .post(jobController.create)
+     // show a particular job
     router
         .route('/job/:id')
         .get(jobController.show)
 
-    // edit-update a particular job
+    // update a particular job
     router
         .route('/job/:id')
-        .post(jobController.update)
+        .put(jobController.update)
+    // destroy a particular job
+    router
+        .route('/job/:id')
+        .delete(jobController.destroy)
+    // add a note to a job
+    router
+        .route('/job/:id/note')
+        .post(jobController.noteJob )
 }
