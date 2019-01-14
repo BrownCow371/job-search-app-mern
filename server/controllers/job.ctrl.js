@@ -20,20 +20,28 @@ module.exports = {
         })
     },
     create: (request, result, next) => {
-        let {title, description, postingLink, dateApplied, applicationMethod} = request.body
-        let newJob = new Job({title, description, postingLink, dateApplied, applicationMethod})
+        let {title, description, postingLink, dateApplied, applicationMethod} = request.body;
+        let newJob = new Job({title, description, postingLink, dateApplied, applicationMethod});
+        newJob.addCompany(request.body.companyId)
+            .then((err, job)=>{
+                if (err){
+                    result.send(err);
+                } else if (!job) {
+                    result.sendStatus(404)
+                } else {
+                    result.send(job)
+               } next() 
+            });
        
-        newJob.save(function (err, job){
-            if (err){
-                result.send(err);
-            } else if (!job) {
-                result.sendStatus(404)
-            } else {
-                job.addCompany(request.body.company_id).then((_job)=> {
-                    result.send(newJob)
-                })
-           } next()
-        })
+        // newJob.save(function (err, job){
+        //     if (err){
+        //         result.send(err);
+        //     } else if (!job) {
+        //         result.sendStatus(404)
+        //     } else {
+        //         result.send(job)
+        //    } next()
+        // })
     },
     show: (request, result, next) => {
         Job.findById(request.params.id)
@@ -84,6 +92,13 @@ module.exports = {
                 entryDate: request.body.date
             }).then(()=>{
                 // return result.json({msg: "Done"})
+                result.send(job)
+            })
+        }).catch(next)
+    },
+    addComp: (request, result, next) => {
+        Job.findById(request.params.id).then((job)=>{
+            return job.addCompany(request.body.companyId).then(()=>{
                 result.send(job)
             })
         }).catch(next)
