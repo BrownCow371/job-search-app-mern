@@ -30,4 +30,8 @@ module.exports = (router) => {
     router
         .route('/job/:id/note')
         .post(jobController.noteJob )
+    // add company to a job
+    router
+        .route('/job/:id/company')
+        .post(jobController.addComp )
 }
