@@ -34,8 +34,8 @@ JobSchema.methods.addNote = function(note){
     return this.save();
 }
 
-JobSchema.methods.addCompany = function(company_id){
-    this.company = company_id;
+JobSchema.methods.addCompany = function(companyId){
+    this.company = companyId;
     return this.save();
 }
 
