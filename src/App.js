@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 //Components
-import NavBar from './components/static/NavBar.js';
+import MyNavBar from './components/static/NavBar.js';
 import Test from './components/static/Test.js';
+import Greeting from './components/static/Greeting.js';
+import Jobs from './containers/jobs/Jobs.js';
 
-// import logo from './logo.svg';
-// import './App.css';
+
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="wrapper">
-          <NavBar />
+          <MyNavBar />
+          <Route path='/' component={Greeting} />
+          <Route exact path='/jobs' component={Jobs} />
           <Route exact path='/test' component={Test} />
         </div>
       </Router>
