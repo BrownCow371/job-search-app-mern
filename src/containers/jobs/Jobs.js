@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
+import JobTable from '../../components/jobs/JobTable.js'
 
 class Jobs extends Component {
+
     render(){
     return (
         <div>
             <h2>Jobs list</h2>
-            {this.props.jobs.map((job, i) => {
-                return <li key={i}>{job.title}</li>
-            })}
+            <JobTable
+                jobs={this.props.jobs}
+            />
         </div>
     )}
 }
