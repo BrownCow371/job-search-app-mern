@@ -6,10 +6,17 @@ import MyNavBar from './components/static/NavBar.js';
 import Test from './components/static/Test.js';
 import Greeting from './components/static/Greeting.js';
 import Jobs from './containers/jobs/Jobs.js';
+import {connect} from 'react-redux';
 
-
+// actions
+import {fetchJobs} from './actions/jobs.js'
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.fetchJobs();
+  }
+  
   render() {
     return (
       <Router>
@@ -24,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, {fetchJobs})(App);
