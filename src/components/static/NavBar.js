@@ -7,8 +7,8 @@ import {Nav, NavItem, Navbar, NavLink} from 'reactstrap';
 const MyNavBar = () => {
       
     return (
-        <div>
-        <Navbar color="light" light expand="md">
+        
+        <Navbar color="light" expand="md">
             <Nav className="ml-auto" navbar>
                 <NavItem>
                     <NavLink href = "/" >HOME</NavLink>
@@ -21,7 +21,7 @@ const MyNavBar = () => {
                 </NavItem>
             </Nav>
         </Navbar>
-        </div>
+       
         
     )
 }
