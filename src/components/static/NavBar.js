@@ -5,25 +5,19 @@ import {Nav, NavItem, Navbar, NavLink} from 'reactstrap';
 
 
 const MyNavBar = () => {
-    // return (
-    //     <div>
-    //         <Link to = "/test" exact>Test</Link>
-    //         <Link to = "/" exact>Home</Link>
-    //     </div>
-    // )
-   
+      
     return (
         <div>
         <Navbar color="light" light expand="md">
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <NavLink href = "/" exact>HOME</NavLink>
+                    <NavLink href = "/" >HOME</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href = "/test" exact>TEST</NavLink>
+                    <NavLink href = "/test" >TEST</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href = "/jobs" exact>JOBS</NavLink>
+                    <NavLink href = "/jobs" >JOBS</NavLink>
                 </NavItem>
             </Nav>
         </Navbar>
