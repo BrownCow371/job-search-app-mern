@@ -6,9 +6,9 @@ Don't forget...your backend server is at http://192.168.1.8:3001/api/test (don't
 run `npm install` (will load node packages necessary for running this application)
 Need to make sure DB is running on mlab
 
-MongoDB instance must be running, before you begin the cURL test. To start a MongoDB server, run the command: mongod do we need this to run DB in general?
+launch client with `npm start`
 
-launch with `npm start`
+launch server with `node server/app.js`
 
 
 
