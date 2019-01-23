@@ -21,13 +21,18 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="wrapper">
-          <MyNavBar />
-          <Route path='/' component={Greeting} />
-          <Route exact path='/jobs' component={Jobs} />
-          <Route exact path='/jobs/:id' component={ShowJob} />
-          <Route exact path='/test' component={Test} />
-        </div>
+        <>
+          
+          <div className="outside-wrapper">
+            <MyNavBar />
+            <div className="inside-wrapper">
+              <Route path='/' component={Greeting} />
+              <Route exact path='/jobs' component={Jobs} />
+              <Route exact path='/jobs/:id' component={ShowJob} />
+              <Route exact path='/test' component={Test} />
+            </div>
+          </div>
+        </>
       </Router>
     );
   }
