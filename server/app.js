@@ -50,7 +50,7 @@ mongoose.connect(
 )
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
-db.once("open", () => console.log("connected to the database"));
+db.once("open", () => console.log("Connected to the MongoDB Database"));
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // set up middleware
