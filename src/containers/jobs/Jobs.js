@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
 
-const Jobs = () => {
+class Jobs extends Component {
+    render(){
     return (
         <div>
-            <h1>Jobs list</h1>
+            <h2>Jobs list</h2>
+            {this.props.jobs.map((job, i) => {
+                return <li key={i}>{job.title}</li>
+            })}
         </div>
-    )
+    )}
+}
+const mapStateToProps = (state) => {
+    return {jobs: state.jobs}
 }
 
-export default Jobs
+export default connect(mapStateToProps)(Jobs);
