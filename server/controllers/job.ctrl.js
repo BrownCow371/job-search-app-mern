@@ -20,28 +20,28 @@ module.exports = {
         })
     },
     create: (request, result, next) => {
-        let {title, description, postingLink, dateApplied, applicationMethod} = request.body;
-        let newJob = new Job({title, description, postingLink, dateApplied, applicationMethod});
-        newJob.addCompany(request.body.companyId)
-            .then((err, job)=>{
-                if (err){
-                    result.send(err);
-                } else if (!job) {
-                    result.sendStatus(404)
-                } else {
-                    result.send(job)
-               } next() 
-            });
+        let {title, description, postingLink, dateApplied, applicationMethod, company} = request.body;
+        let newJob = new Job({title, description, postingLink, dateApplied, applicationMethod, company});
+        // newJob.addCompany(request.body.companyId)
+        //     .then((err, job)=>{
+        //         if (err){
+        //             result.send(err);
+        //         } else if (!job) {
+        //             result.sendStatus(404)
+        //         } else {
+        //             result.send(job)
+        //        } next() 
+        //     });
        
-        // newJob.save(function (err, job){
-        //     if (err){
-        //         result.send(err);
-        //     } else if (!job) {
-        //         result.sendStatus(404)
-        //     } else {
-        //         result.send(job)
-        //    } next()
-        // })
+        newJob.save(function (err, job){
+            if (err){
+                result.send(err);
+            } else if (!job) {
+                result.sendStatus(404)
+            } else {
+                result.send(job)
+           } next()
+        })
     },
     show: (request, result, next) => {
         Job.findById(request.params.id)
@@ -91,7 +91,6 @@ module.exports = {
                 text: request.body.note,
                 entryDate: request.body.date
             }).then(()=>{
-                // return result.json({msg: "Done"})
                 result.send(job)
             })
         }).catch(next)
