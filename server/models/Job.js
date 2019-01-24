@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 
 const JobSchema = new mongoose.Schema(
     {
-        title: String,
+        title: {
+            type: String,
+            required: true
+        },
         description: String,
         postingLink: String,
         dateApplied: {
@@ -12,7 +15,8 @@ const JobSchema = new mongoose.Schema(
         applicationMethod: String,
         company: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Company'
+            required: true,           
+            ref: 'Company',            
         },
         notes: [
             {
