@@ -1,7 +1,8 @@
 export default function appReducer(
     state = {
         loading: false,
-        jobs: []
+        jobs: [],
+        companies: [],
     }, 
     action){
     switch(action.type){
@@ -9,6 +10,8 @@ export default function appReducer(
             return {...state, loading: true}
         case 'FETCH_JOBS':
             return {...state, jobs: action.payload, loading: false}
+        case 'FETCH_COMPANIES':
+            return {...state, companies: action.payload, loading: false}
         default:
             return state;
     }   
