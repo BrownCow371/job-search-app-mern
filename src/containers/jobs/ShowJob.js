@@ -6,7 +6,7 @@ class ShowJob extends Component {
 
     render(){
         let id = this.props.match.params.id;
-        let job = this.props.jobs.find(job => job._id == id)
+        let job = this.props.jobs.find(job => job._id === id)
         return (
             <div>
                 <JobDetails
