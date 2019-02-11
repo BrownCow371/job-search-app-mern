@@ -7,7 +7,7 @@ class Jobs extends Component {
     render(){
     return (
         <div>
-            <h2>Jobs list</h2>
+            <h2>Jobs List</h2>
             <JobTable
                 jobs={this.props.jobs}
             />
