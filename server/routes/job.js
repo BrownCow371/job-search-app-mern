@@ -2,9 +2,9 @@ const jobController = require('./../controllers/job.ctrl')
 
 module.exports = (router) => {
     // test route
-    router
-        .route('/test')
-        .get(jobController.test)
+    // router
+    //     .route('/test')
+    //     .get(jobController.test)
     // get all jobs -index
     router
         .route('/jobs')
