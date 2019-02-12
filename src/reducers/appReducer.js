@@ -12,6 +12,8 @@ export default function appReducer(
             return {...state, jobs: action.payload, loading: false}
         case 'FETCH_COMPANIES':
             return {...state, companies: action.payload, loading: false}
+        case 'ADD_COMPANY':
+            return {...state, companies: [...state.companies, action.payload], loading: false}   
         default:
             return state;
     }   
