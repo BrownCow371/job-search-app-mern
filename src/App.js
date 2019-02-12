@@ -4,11 +4,11 @@ import {Layout} from 'antd';
 
 //Components
 import MyNavBar from './components/static/NavBar.js';
-import Test from './components/static/Test.js';
 import Greeting from './components/static/Greeting.js';
 import Jobs from './containers/jobs/Jobs.js';
 import ShowJob from './containers/jobs/ShowJob.js';
 import Companies from './containers/companies/Companies.js';
+import NewCompany from './containers/companies/NewCompany.js';
 import ShowCompany from './containers/companies/ShowCompany.js';
 
 
@@ -39,10 +39,9 @@ class App extends Component {
               <Route path='/' component={Greeting} />
               <Route exact path='/jobs' component={Jobs} />
               <Route exact path='/jobs/:id' component={ShowJob} />
-              <Route exact path='/test' component={Test} />
               <Route exact path='/companies' component={Companies} />
+              <Route exact path='/companies/new' component={NewCompany} />
               <Route exact path='/companies/:id' component={ShowCompany} />
-
             </div>
           </div>
         </Layout>
