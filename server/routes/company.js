@@ -7,15 +7,15 @@ module.exports = (router) => {
         .get(companyController.index);
     // create company
     router
-        .route('/company')
+        .route('/companies')
         .post(companyController.create);
     // show company
     router
-        .route('/company/:id')
+        .route('/companies/:id')
         .get(companyController.show)
     // update company
     router
-        .route('/company/:id')
+        .route('/companies/:id')
         .put(companyController.update)
     // leaving delete out on purpose - don't think we have a need?
 }
