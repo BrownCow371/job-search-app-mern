@@ -27,7 +27,7 @@ class NewCompany extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log("The fomr was submitted")
+        console.log("The form was submitted")
         this.props.addCompany(this.state.company);
     }
 
